@@ -1,4 +1,12 @@
+
 # Guide for integration
+
+# Table of contents
+1. [Authentication API](#Authentication-API)
+2. [Merchant API](#Merchant-API)
+3. [Postman documentation](#Postman-documentation)
+4. [Environments](#Environments)
+5. [Contacts](#Contacts)
 
 ## Authentication API
 
@@ -48,7 +56,7 @@ When the token expires the client can use the refresh token to request a new tok
 $ curl -X POST 'secure.splittypay.it/splitty-pay/oauth/token?refresh_token=5a0d533a-b6b1-4706-8058b9d66443f7a1&grant_type=refresh_token' -H 'Authorization: Basic \<base64token>'
 ```
 
-## Payments API
+## Merchant API
 
 ### Payment Registration
 
@@ -226,6 +234,13 @@ Paginated result structure:
     "empty": false
 }
 ```
+
+## Postman documentation
+
+The complete documentation of the REST API is available at [https://documenter.getpostman.com/view/1912948/SVtWwnQG?version=latest](https://documenter.getpostman.com/view/1912948/SVtWwnQG?version=latest)
+
+**NB** WIP (Work in progress) in the API name means that the endpoint will be available in the next release.
+
 ## Environments
 
 * Production Base Url: https://secure.splittypay.it/splitty-pay/
