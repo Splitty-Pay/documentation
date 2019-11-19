@@ -239,6 +239,8 @@ Paginated result structure:
 
 The complete documentation of the REST API is available at [https://documenter.getpostman.com/view/1912948/SVtWwnQG?version=latest](https://documenter.getpostman.com/view/1912948/SW11Xdy5?version=latest)
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/554bcabca4269f0022ed)
+
 **NB** WIP (Work in progress) in the API name means that the endpoint will be available in the next release.
 
 ## Environments
