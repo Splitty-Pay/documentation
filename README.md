@@ -4,9 +4,10 @@
 # Table of contents
 1. [Authentication API](#Authentication-API)
 2. [Merchant API](#Merchant-API)
-3. [Postman documentation](#Postman-documentation)
-4. [Environments](#Environments)
-5. [Contacts](#Contacts)
+3. [Profile API](#Profile-API)
+4. [Postman documentation](#Postman-documentation)
+5. [Environments](#Environments)
+6. [Contacts](#Contacts)
 
 ## Authentication API
 
@@ -14,7 +15,7 @@ In order to call the SplittyPay APIs, the merchant must request a grant authoriz
 
 The following lines represents two examples of alternatives Oauth2 token requests:
 
-```
+```bash
  $ curl -X POST 'secure.splittypay.it/splitty-pay/oauth/token?grant_type=password&username=username&password=password' -H 'Authorization: Basic \<base64token>' 
  ```
 
@@ -52,7 +53,7 @@ If an expired token is sent, an HTTP 401 response is returned with the following
 ```
 When the token expires the client can use the refresh token to request a new token, this is an example:
 
-```
+```bash
 $ curl -X POST 'secure.splittypay.it/splitty-pay/oauth/token?refresh_token=5a0d533a-b6b1-4706-8058b9d66443f7a1&grant_type=refresh_token' -H 'Authorization: Basic \<base64token>'
 ```
 
@@ -235,13 +236,53 @@ Paginated result structure:
 }
 ```
 
+## Profile API
+
+The [Profile API]([https://documenter.getpostman.com/view/1912948/SW11Xdy5?version=latest#3e7cbf6e-ccb7-4f42-9a5f-241651bac970](https://documenter.getpostman.com/view/1912948/SW11Xdy5?version=latest#3e7cbf6e-ccb7-4f42-9a5f-241651bac970)) allow you to define the Account profile variables like:
+
+ 
+| Parameter | Description | Constraint
+|--|--|--|
+|`email` | Merchant notification email|
+|`logoDescriptionUrl` | The logo will appear in the checkout page| URL must be `https`
+|`logoEmailUrl`| The logo will appear in the email sended to the customer | URL must be `https`
+|`notificationUrl`| The endpoint that will be notified for ServerToServer of [Transfer]([https://github.com/Splitty-Pay/bankwire-documentation](https://github.com/Splitty-Pay/bankwire-documentation)) | URL must be `https`
+
+
+### Example of request to retrieve informations
+```bash
+curl --location --request GET '{base_url}/api/profile'
+```
+``` json
+{
+	"name": "splittypay",
+	"active": "true",
+	"logoDescriptionUrl": "https://www.splittypay.com/assets/img/logo_purple.png",
+	"logoMailUrl": "https://www.splittypay.com/assets/img/logo_purple.png",
+	"email": "federico@splittypay.com",
+	"notificationUrl": "https://webhook.site/7d4e30a3-b137-49d4-9a34-2d224e344301"
+}
+```
+
+### Example of request to update informations
+```bash
+curl --location --request PATCH 'https://sandbox.splittypay.it/splitty-pay/api/profile' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"email": "example@splittypay.com",
+	"logoDescriptionUrl": "https://www.splittypay.com/assets/img/logo_purple.png",
+	"logoMailUrl": "https://www.splittypay.com/assets/img/logo_purple.png",
+	"notificationUrl": "https://webhook.site/7d4e30a3-b137-49d4-9a34-2d224e344301"
+
+}'
+```
+
+
 ## Postman documentation
 
 The complete documentation of the REST API is available at [https://documenter.getpostman.com/view/1912948/SVtWwnQG?version=latest](https://documenter.getpostman.com/view/1912948/SW11Xdy5?version=latest)
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/554bcabca4269f0022ed)
-
-**NB** WIP (Work in progress) in the API name means that the endpoint will be available in the next release.
 
 ## Environments
 
