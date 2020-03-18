@@ -7,7 +7,7 @@
 3. [Profile API](#Profile-API)
 4. [Postman documentation](#Postman-documentation)
 5. [Environments](#Environments)
-6. [Contacts](#Contacts)
+7. [Contacts](#Contacts)
 
 ## Authentication API
 
@@ -286,8 +286,11 @@ The complete documentation of the REST API is available at [https://documenter.g
 
 ## Environments
 
-* Production Base Url: https://secure.splittypay.it/splitty-pay/
-* Sandbox Base Url: https://sandbox.splittypay.it/splitty-pay/
+
+|  |Sandbox  |Production |
+|--|--|--|
+|BaseUrl  | https://sandbox.splittypay.it/splitty-pay/ |https://secure.splittypay.it/splitty-pay/ |
+|Stripe Public Key  |  `pk_test_XAWBDuV0t4cFqBXNgPaOcfdI00Bnzum9Hn`| `pk_live_0PB2cijPrjvgdB4sRItAGs8s00vj5uwDTc`|
 
 ## Contacts
 
