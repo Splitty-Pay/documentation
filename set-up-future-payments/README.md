@@ -1,9 +1,9 @@
 
 # Set up future payments
-This repo contains the instruction and a sample that explains how integrate Splitty Pay directly in your checkout page.
 
-Collecting payments on your website consists of creating an object to track a payment, collecting card information, and submitting the payment to Stripe for processing.
+The  [Setup Intents API](https://documenter.getpostman.com/view/1912948/SW11Xdy5?version=latest#cc6c5e1e-7b54-45c3-883e-3538dbc0e02a)  lets you save a customer’s card without an initial payment. This is helpful if you want to onboard customers now, set them up for payments, and charge them in the future—when they’re offline.
 
+Use this integration to set up recurring payments or to create one-time payments with a final amount determined later, often after the customer receives your service.
 
  ## Set up Splitty Pay
 First of all complete Splitty Pay server integration following the guide [https://github.com/Splitty-Pay/documentation](https://github.com/Splitty-Pay/documentation).
@@ -20,7 +20,7 @@ curl --location --request POST 'https://sandbox.splittypay.it/splitty-pay/api/st
 --header 'Content-Type: application/json' \
 --header ': {{BEARER_TOKEN}}' \
 --data-raw '{
-	"email": "test@splittypay.it"
+  "email": "test@splittypay.it"
 }
 ```
 You should create a Customer object when your customer creates an account with your business. If your customer is making a payment as a guest, you can create a Customer object before payment and associate it with your own internal representation of the customer’s account later.
@@ -36,7 +36,7 @@ curl --location --request POST 'https://sandboox.splittypay.it/splitty-pay/api/s
 --header 'Content-Type: application/json' \
 --header ': {{BEARER_TOKEN}}' \
 --data-raw '{
-"customer="{{CUSTOMER_ID}}"	
+"customer="{{CUSTOMER_ID}}" 
 }
 ```
 If you only plan on using the card for future payments when your customer is present during the checkout flow, set the [usage](https://stripe.com/docs/api/setup_intents/object#setup_intent_object-usage) parameter to `on_session` to optimize authorization rates.
@@ -127,18 +127,18 @@ curl --location --request POST 'https://sandbox.splittypay.it/splitty-pay/api/ch
 --header 'Content-Type: application/json' \
 --header ': {{BEARER_TOKEN}}' \
 --data-raw '{
-	"amount": 500,
-	"paymentMethod": "card_1GdB7ZCbfNWWRVQLByEb9E4X",
-	"notificationUrl": "https://webhook.site/4ce532b5-7ccc-4373-a1f9-85618d78d234",
-	"cart": "1234",
-	"description": "A direct payment",
-	"preAuth": false,
-	"details": {
-		"language": "IT",
-		"email": "federico@splittypay.com"
-	},
-	"customerId": "cus_GZ0HinvzWy68BK",
-	"offSession": false
+  "amount": 500,
+  "paymentMethod": "card_1GdB7ZCbfNWWRVQLByEb9E4X",
+  "notificationUrl": "https://webhook.site/4ce532b5-7ccc-4373-a1f9-85618d78d234",
+  "cart": "1234",
+  "description": "A direct payment",
+  "preAuth": false,
+  "details": {
+    "language": "IT",
+    "email": "federico@splittypay.com"
+  },
+  "customerId": "cus_GZ0HinvzWy68BK",
+  "offSession": false
 }'
 ```
 In order ti retrive the PaymentMethod use the [Customer API](https://documenter.getpostman.com/view/1912948/SW11Xdy5?version=latest#9202184d-171f-4b55-b5bf-19200e41fcc5)
