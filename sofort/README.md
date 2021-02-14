@@ -156,11 +156,6 @@ If a charge has not been confirmed within the cut-off time, the charge’s statu
 
 On average, approximately 0.2% of SOFORT charges can be expected to fail. This may vary based on your industry or customer base. Depending on your average payment amount, the type of products or service being provided, and risk associated with your business, you may prefer to fulfill orders only once the  `charge.succeeded`  webhook has been received.
 
-### Source expiration
-
-A source must be used within six hours of becoming  `chargeable`. If it is not, its status is automatically transitioned to  `canceled`  and your integration receives a  `source.canceled`  webhook event. Additionally,  `pending`  sources are canceled after one hour if they are not used to authenticate a payment.
-
-Once a source is canceled, the customer’s authenticated payment is refunded automatically—no money is moved into your account. For this reason, make sure the order is canceled on your end and the customer is notified once you receive the  `source.canceled`  event.
 
 ### Testing charge success and failure
 
