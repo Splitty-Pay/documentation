@@ -143,7 +143,7 @@ rejected payment
 {"totalAmount":1099,"ref":"src_1Gik0xCbfNWWRVQLBF0OqwEm","cart":"123","status":"FAILED"}
 ```
 If payment will be accepted a transfert of the amount (minus the processing fee) will be made from Splittypay account to the merchant Account.
- 
+
 We recommend that you rely on these webhook events to notify your customer of their payment status.
 
 ### Disputed payments
