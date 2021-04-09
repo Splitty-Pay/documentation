@@ -132,7 +132,6 @@ Here is the details structure (that can be enlarged with more data):
 |----------------|-------------------------------|-----------------------------|
 |ipAddress			 |String                        |           |
 |email          |String          |`Valid email format`            |
-|phoneNumber          |String||
 
 ### Payment confirmation
 
